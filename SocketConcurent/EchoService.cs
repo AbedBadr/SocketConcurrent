@@ -4,7 +4,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.IO;
 
-namespace SocketConcurent
+namespace SocketConcurrent
 {
     public class EchoService
     {
