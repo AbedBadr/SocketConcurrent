@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
 
 namespace SocketConcurent
 {
@@ -19,7 +20,9 @@ namespace SocketConcurent
 
                 EchoService echoService = new EchoService(connectionSocket);
 
-                echoService.DoIt();
+                Thread myThread = new Thread(echoService.DoIt);
+
+                myThread.Start();
             }
         }
     }
