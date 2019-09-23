@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SocketConcurent
 {
@@ -20,6 +22,14 @@ namespace SocketConcurent
                 EchoService echoService = new EchoService(connectionSocket);
 
                 echoService.DoIt();
+
+                //Task.Factory.StartNew(() => echoService.DoIt());
+                //Task.Factory.StartNew(echoService.DoIt);
+
+                //Task.Run(() => echoService.DoIt());
+
+                //Thread myThread = new Thread(echoService.DoIt);
+                //myThread.Start();
             }
         }
     }
