@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SocketConcurent
+namespace SocketConcurrent
 {
     class TCPEchoServer
     {
@@ -21,15 +21,9 @@ namespace SocketConcurent
 
                 EchoService echoService = new EchoService(connectionSocket);
 
-                echoService.DoIt();
+                Thread myThread = new Thread(echoService.DoIt);
 
-                //Task.Factory.StartNew(() => echoService.DoIt());
-                //Task.Factory.StartNew(echoService.DoIt);
-
-                //Task.Run(() => echoService.DoIt());
-
-                //Thread myThread = new Thread(echoService.DoIt);
-                //myThread.Start();
+                myThread.Start();
             }
         }
     }
