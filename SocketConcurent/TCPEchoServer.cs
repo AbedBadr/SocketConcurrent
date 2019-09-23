@@ -21,9 +21,13 @@ namespace SocketConcurrent
 
                 EchoService echoService = new EchoService(connectionSocket);
 
-                Thread myThread = new Thread(echoService.DoIt);
+                //Task.Factory.StartNew(() => echoService.DoIt());
+                //Task.Factory.StartNew(echoService.DoIt);
 
-                myThread.Start();
+                //Task.Run(() => echoService.DoIt());
+
+                //Thread myThread = new Thread(echoService.DoIt);
+                //myThread.Start();
             }
         }
     }
